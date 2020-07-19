@@ -1,0 +1,33 @@
+@import "../../styles/global/typeFont.scss";
+@import "../../styles/global/_color.scss";
+
+footer {
+	width: 100vw;
+	background-color: $gray08;
+	.footer-inner {
+		width: 100%;
+		padding: 10px 24px;
+		display: flex;
+		align-items: flex-end;
+		> ul {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			li {
+				margin-right: 15px;
+				border-right: 1px solid #585858;
+				padding-right: 10px;
+				color: #ececec;
+				&:last-child {
+					margin-right: 0;
+					border-right: none;
+					padding-right: 0;
+				}
+				a {
+					color: #ececec;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+@import '../global/color';
+
+// Tag styles
+@mixin tagTemplate(
+    $fontSize: 14px,
+    $color: $gray03,
+    $backgroundColor: $gray07
+) {
+    font-size: $fontSize;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 50px;
+    color: $color;
+    background-color: $backgroundColor;
+}
+
+.tagNormal {
+    @include tagTemplate();
+}
+.tagGreen {
+    @include tagTemplate(14px, $gray08, $green04);
+}
+.tagBlue {
+    @include tagTemplate(14px, $gray01, $blue05);
+}

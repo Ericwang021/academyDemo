@@ -1,0 +1,50 @@
+@import '../global/color';
+@import '../global/fontSize';
+
+//全圓角Icon Button
+@mixin iconButtonTemplate($width, $height, $color) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $width;
+  height: $height;
+  padding: 12px;
+  color: $color;
+  border-radius: 50%;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.iconButtonSm {
+  @include iconButtonTemplate(30px, 30px, #fff);
+}
+
+//call to action button 用於頁面轉換
+@mixin callToActionButton(
+  $width: 100%,
+  $fontSize: map-get($desktopFont, $h4-size),
+  $radius: 5px
+) {
+  width: $width;
+  font-size: $fontSize;
+  text-align: center;
+  font-weight: $font-weight-bold;
+  border-radius: $radius;
+  padding: 15px 20px;
+  color: $gray03;
+  background-color: $blue05;
+  box-shadow: $box-shadow-medium;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btnCta {
+  @include callToActionButton(100%, inherit, 3px);
+}

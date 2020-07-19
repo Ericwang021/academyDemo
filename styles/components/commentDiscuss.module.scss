@@ -1,0 +1,90 @@
+@import '../global/color';
+@import '../global/fontSize';
+@import '../global/variable';
+
+// 問題與討論區塊共用style
+.comment {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% auto;
+  column-gap: 5px;
+  margin-top: 10px;
+  div {
+    &.avatar {
+      display: flex;
+    }
+    &.commentWrapper {
+      display: grid;
+      grid-template-rows: auto;
+      row-gap: 10px;
+      color: $gray07;
+      .commentBox {
+        display: grid;
+        grid-template-columns: auto 20%;
+        column-gap: 10px;
+        &:hover {
+          .editDelete {
+            visibility: visible;
+          }
+        }
+        .rightContent {
+          display: flex;
+          justify-content: flex-end;
+        }
+        .commentContent {
+          font-size: map-get($desktopFont, $h5-size);
+        }
+        .lattice {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 22px;
+          height: 22px;
+          padding: 3px;
+          border-radius: 50%;
+          margin-right: 10px;
+          background-color: $gray05;
+          cursor: pointer;
+        }
+        .clicked {
+          @extend .lattice;
+          color: #fff;
+          background-color: $blue06;
+        }
+        .number {
+          font-size: map-get($desktopFont, $h5-size);
+        }
+        .editDelete {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          visibility: hidden;
+          margin-top: 15px;
+          > div {
+            color: $blue06;
+            font-size: map-get($desktopFont, $h6-size);
+            cursor: pointer;
+            &:first-child {
+              padding-right: 20px;
+            }
+          }
+        }
+      }
+      .replyCommentBox {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        flex-direction: column;
+        form {
+          width: 100%;
+        }
+        .feedbackText {
+          color: $blue06;
+          font-size: map-get($desktopFont, $h6-size);
+          cursor: pointer;
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+}

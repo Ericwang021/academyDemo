@@ -1,0 +1,9 @@
+@import "../styles/global/color";
+
+.container {
+	background-color: $gray03;
+	padding: 15px 0;
+	.containerBackground {
+		background-color: transparent;
+	}
+}

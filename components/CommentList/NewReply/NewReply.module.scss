@@ -1,0 +1,21 @@
+@import "../../../styles/global/color";
+
+.addMessage {
+    display: grid;
+    grid-template-areas: "avatar" "textArea" "event";
+    grid-template-columns: 10% 75% auto;
+    column-gap: 10px;
+    width: 100%;
+    .textAreaBox {
+        textarea {
+            width: 100%;
+            height: 80px;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            color: $gray07;
+            background-color: $gray04;
+            resize: none;
+        }
+    }
+}

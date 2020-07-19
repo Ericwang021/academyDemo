@@ -1,0 +1,15 @@
+@import "../global/_variable.scss";
+.index {
+	.video-box-wrapper {
+		width: 100%;
+		height: auto;
+		display: grid;
+		grid-template-columns: 60% auto;
+		column-gap: 10px;
+		margin-top: 20px;
+	}
+	.video-title-wrapper {
+		width: 60%;
+		margin: 40px 0;
+	}
+}
