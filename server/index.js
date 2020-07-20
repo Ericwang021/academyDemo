@@ -1,7 +1,6 @@
 // Import prerequisite packages
 const next = require("next");
 const Koa = require("koa");
-const Router = require("koa-router");
 const http = require("http");
 
 // Initialize NextJs instance and expose request handler
@@ -14,18 +13,20 @@ const server = http.createServer((req, res) => {
 	res.statusCode = 200;
 	res.setHeader("Content-Type", "text/plain");
 	res.end("../pages/index.js\n");
+});
 
-	// app.prepare().then(() => {
-	// Initialize KoaJs server and router
-	// const server = new Koa();
-	// const router = new Router();
-	// server.use(async (ctx, next) => {
-	// 	await handle(ctx.req, ctx.res);
-	// 	ctx.respond = false;
-	// });
-	// });
+// app.prepare().then(() => {
+// 	//Initialize KoaJs server and router
+// 	const server = new Koa();
+// 	server.use(async (ctx, next) => {
+// 		await handle(ctx.req, ctx.res);
+// 		ctx.respond = false;
+// 	});
 
-	server.listen(PORT, () => {
-		console.log(`koa server listening on ${PORT}`);
-	});
+// 	server.listen(PORT, () => {
+// 		console.log(`koa server listening on ${PORT}`);
+// 	});
+// });
+server.listen(PORT, () => {
+	console.log(`koa server listening on ${PORT}`);
 });
