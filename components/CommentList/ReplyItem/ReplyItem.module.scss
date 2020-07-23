@@ -1,6 +1,6 @@
-@import '../../../styles/global/color';
-@import '../../../styles/global/typeFont.scss';
-@import '../../../styles/global/_variable.scss';
+@import "../../../styles/global/color";
+@import "../../../styles/global/fontSize";
+@import "../../../styles/global/_variable.scss";
 
 .feedback {
     display: flex;
@@ -18,6 +18,20 @@
             color: $blue06;
             font-size: map-get($desktopFont, $h6-size);
             cursor: pointer;
+        }
+    }
+}
+.ReplyEditDelete {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    > div {
+        margin-right: 5px;
+        color: $blue06;
+        min-width: 25px;
+
+        &:last-child {
+            margin-right: 0;
         }
     }
 }

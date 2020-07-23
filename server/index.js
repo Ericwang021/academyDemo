@@ -18,6 +18,6 @@ app.prepare().then(() => {
 	});
 
 	server.listen(PORT, () => {
-		console.log(`koa server listening on ${PORT}`);
+		console.log(`koa server listening on http://localhost:${PORT}/`);
 	});
 });

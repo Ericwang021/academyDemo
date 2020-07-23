@@ -1,28 +1,29 @@
-import React, { useContext } from 'react';
-import ReplyItem from '../ReplyItem/ReplyItem';
-import context from '../../context';
+import React, { useContext } from "react";
+import ReplyItem from "../ReplyItem/ReplyItem";
+import context from "../../context";
 
-const ReplyList = () => {
-  const contextValue = useContext(context);
-  const { replyDiscussionList, setReplyDiscussionList } = contextValue;
+const ReplyList = ({ commentIndex }) => {
+	const contextValue = useContext(context);
+	const { discussionList, setDiscussionList } = contextValue;
+	const replyList = discussionList[commentIndex].record.reply;
+	console.log();
+	// const deleteReplyComment = (index) => {
+	// 	setReplyDiscussionList([
+	// 		...[replyDiscussionList].splice(0, index),
+	// 		...[replyDiscussionList].splice(index, replyDiscussionList.length),
+	// 	]);
+	// };
 
-  const deleteReplyComment = (index) => {
-    setReplyDiscussionList([
-      ...[replyDiscussionList].splice(0, index),
-      ...[replyDiscussionList].splice(index, replyDiscussionList.length),
-    ]);
-  };
-
-  return replyDiscussionList.map((replyDiscussionList, index) => {
-    return (
-      <ReplyItem
-        key={`replyDiscussionList${index}`}
-        replyDiscussionList={replyDiscussionList}
-        index={index}
-        deleteReplyComment={deleteReplyComment}
-      />
-    );
-  });
+	return replyList.map((replyItem, index) => {
+		return (
+			<ReplyItem
+				key={`replyList${index}`}
+				replyItem={replyItem}
+				replyIndex={index}
+				commentIndex={commentIndex}
+			/>
+		);
+	});
 };
 
 export default ReplyList;

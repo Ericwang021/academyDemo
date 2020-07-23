@@ -1,25 +1,26 @@
-import React, { useContext } from 'react';
-import CommentItem from './CommentItem/CommentItem';
-import context from '../context';
+import React, { useContext } from "react";
+import CommentItem from "./CommentItem/CommentItem";
+import context from "../context";
 
-const CommentList = () => {
-  const contextValue = useContext(context);
-  const { discussionList, setDiscussionList } = contextValue;
-
-  const deletedCommentItem = (index) => {
-    setDiscussionList(
-      discussionList.slice(index !== 0 ? 0 + index : index + 1),
-    );
-  };
-
-  return discussionList.map((discussion, index) => (
-    <CommentItem
-      key={`comment${index}`}
-      discussion={discussion}
-      index={index}
-      deletedCommentItem={deletedCommentItem}
-    />
-  ));
+const CommentList = ({ searchResult }) => {
+	const contextValue = useContext(context);
+	const selectRenderItem = (a, b) => {
+		if (!!a.length) {
+			return a;
+		} else {
+			return b;
+		}
+	};
+	const isSearch = !!searchResult.length;
+	const { discussionList } = contextValue;
+	const renderList = selectRenderItem(searchResult, discussionList);
+	return renderList.map((renderItem, index) => (
+		<CommentItem
+			key={`comment${index}`}
+			index={index}
+			renderItem={renderItem}
+		/>
+	));
 };
 
 export default CommentList;
