@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import context from "../../context";
 import avatarStyle from "../../../styles/components/avatar.module.scss";
 import commonStyle from "../../../styles/components/common.module.scss";
@@ -71,29 +71,30 @@ const CommentItem = ({ renderItem, index }) => {
 							</span>
 						)}
 					</div>
-					<div className={commentDiscussStyles.rightContent}>
-						<span
-							className={
-								everGood
-									? commentDiscussStyles.clicked
-									: commentDiscussStyles.lattice
-							}
-							onClick={clickedLattice}
-						>
-							+1
-						</span>
-						<span className={commentDiscussStyles.number}>{goodCount}</span>
-					</div>
-					<div className={commentDiscussStyles.editDelete}>
-						<div onClick={() => setShowEditInput(!showEditInput)}>
-							{`${showEditInput ? "取消" : "編輯"}`}
-						</div>
-						{showEditInput ? (
-							<div onClick={handleSaveChange}>儲存</div>
-						) : (
-							<div onClick={deletedCommentItem}>刪除</div>
-						)}
-					</div>
+					{!isSearch ? (
+						<Fragment>
+							<div className={commentDiscussStyles.rightContent}>
+								<span
+									className={
+										everGood
+											? commentDiscussStyles.clicked
+											: commentDiscussStyles.lattice
+									}
+									onClick={clickedLattice}
+								>
+									+1
+								</span>
+								<span className={commentDiscussStyles.number}>{goodCount}</span>
+							</div>
+							<div className={commentDiscussStyles.editDelete}>
+								{showEditInput ? (
+									<div onClick={handleSaveChange}>儲存</div>
+								) : (
+									<div onClick={deletedCommentItem}>刪除</div>
+								)}
+							</div>
+						</Fragment>
+					) : null}
 				</div>
 				<ReplyList commentIndex={index} />
 				<div className={commentDiscussStyles.replyCommentBox}>

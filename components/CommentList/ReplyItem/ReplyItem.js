@@ -8,7 +8,7 @@ import context from "../../context";
 
 const ReplyItem = ({ commentIndex, replyItem, replyIndex }) => {
 	const contextValue = useContext(context);
-	const { discussionList, setDiscussionList } = contextValue;
+	const { discussionList, setDiscussionList, isSearch } = contextValue;
 	const replyList = discussionList[commentIndex].record.reply;
 	const { content, date, name } = replyItem;
 	const [showEditInput, setShowEditInput] = useState(false);
@@ -68,6 +68,7 @@ const ReplyItem = ({ commentIndex, replyItem, replyIndex }) => {
 							<div onClick={deleteReply}>刪除</div>
 						)}
 					</div>
+					)
 				</div>
 			</div>
 		</div>

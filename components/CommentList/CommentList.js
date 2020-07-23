@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import CommentItem from "./CommentItem/CommentItem";
 import context from "../context";
 
-const CommentList = ({ searchResult }) => {
+const CommentList = () => {
 	const contextValue = useContext(context);
 	const selectRenderItem = (a, b) => {
 		if (!!a.length) {
@@ -11,8 +11,7 @@ const CommentList = ({ searchResult }) => {
 			return b;
 		}
 	};
-	const isSearch = !!searchResult.length;
-	const { discussionList } = contextValue;
+	const { discussionList, searchResult } = contextValue;
 	const renderList = selectRenderItem(searchResult, discussionList);
 	return renderList.map((renderItem, index) => (
 		<CommentItem

@@ -1,21 +1,13 @@
 import styles from "./CommentLayout.module.scss";
-import React, {
-	useState,
-	useContext,
-	useReducer,
-	Fragment,
-	useEffect,
-} from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import CommentList from "../CommentList/CommentList";
 import NewComment from "../CommentList/NewComment/NewComment";
-import context from "../context";
+import { defaultDiscussionList, Provider } from "../../components/context";
 import { IconAdd, IconClose, IconSearch, IconFeedBack } from "../Icon/Icon";
 import { initialSearchResult } from "../../redux/initialState/searchResultInitialState";
 import { searchReducer } from "../../redux/reducer/searchReducer";
 
 const CommentLayout = () => {
-	const contextValue = useContext(context);
-	const { discussionList } = contextValue;
 	const [searchResult, dispatch] = useReducer(
 		searchReducer,
 		initialSearchResult
@@ -23,11 +15,12 @@ const CommentLayout = () => {
 	const [showSearchBar, setShowSearchBar] = useState(false);
 	const [showComment, setShowComment] = useState(false);
 	const [searchInput, setSearchInput] = useState("");
-
+	const [discussionList, setDiscussionList] = useState([
+		...defaultDiscussionList,
+	]);
 	const searchHandleChange = (event) => {
 		setSearchInput(event.target.value);
 	};
-
 	const searchHandleKeyUp = (event) => {
 		const keyCode = event.keyCode;
 		if (keyCode === 13) {
@@ -38,7 +31,6 @@ const CommentLayout = () => {
 			});
 		}
 	};
-
 	const closeSearchBar = () => {
 		setShowSearchBar(!showSearchBar);
 	};
@@ -47,9 +39,15 @@ const CommentLayout = () => {
 			dispatch({ type: "clean" });
 		}
 	}, [showSearchBar]);
-
+	const isSearch = !!searchResult.length;
+	const commentContext = {
+		discussionList,
+		setDiscussionList,
+		isSearch,
+		searchResult,
+	};
 	return (
-		<Fragment>
+		<Provider value={commentContext}>
 			<div className={styles.commentLayout}>
 				<div className={styles.commentLayoutInner}>
 					<div className={styles.WrapperTopBox}>
@@ -90,17 +88,23 @@ const CommentLayout = () => {
 							) : null}
 						</div>
 						<div className={styles.commentList}>
-							<div
-								className={styles.totalComment}
-							>{`${discussionList.length}個討論`}</div>
+							{!isSearch ? (
+								<div
+									className={styles.totalComment}
+								>{`${discussionList.length}個討論`}</div>
+							) : (
+								<div
+									className={styles.totalComment}
+								>{`${searchResult.length}個結果`}</div>
+							)}
 						</div>
 					</div>
 					<div className={styles.commentContainer}>
-						<CommentList searchResult={searchResult} />
+						<CommentList />
 					</div>
 				</div>
 			</div>
-		</Fragment>
+		</Provider>
 	);
 };
 
