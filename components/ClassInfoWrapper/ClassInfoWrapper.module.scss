@@ -10,7 +10,7 @@
 	width: 100%;
 	@include breakpoint(pad) {
 		flex-direction: column;
-		justify-content: flex-start;
+		align-items: flex-start;
 	}
 	.title {
 		font-size: map-get($desktopFont, $h1-size);
