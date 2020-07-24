@@ -3,6 +3,7 @@
 	.video-box-wrapper {
 		width: 100%;
 		height: auto;
+		max-height: 600px;
 		display: grid;
 		grid-template-columns: 60% auto;
 		column-gap: 10px;

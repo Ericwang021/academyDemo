@@ -48,66 +48,80 @@ const CommentItem = ({ renderItem, index }) => {
 	};
 	return (
 		<div className={commentDiscussStyles.comment}>
-			<div className={avatarStyle.avatarMl}>{name.substring(0, 1)}</div>
-			<div className={commentDiscussStyles.commentWrapper}>
-				<div className={commentDiscussStyles.commentBox}>
-					<div className={commentDiscussStyles.nameText}>
-						<div>{name}</div>
-						<div>{date}</div>
+			<div className={commentDiscussStyles.titleMarket}>Explore</div>
+			<div className={commentDiscussStyles.commentInner}>
+				<div className={commentDiscussStyles.personalInfo}>
+					<div className={commentDiscussStyles.MarketNumber}>{index + 1}</div>
+					<div className={avatarStyle.avatarMl}>{name.substring(0, 1)}</div>
+					<div className={commentDiscussStyles.commentBox}>
+						<div className={commentDiscussStyles.nameText}>
+							<div className={commentDiscussStyles.name}>{name}</div>
+							<div className={commentDiscussStyles.date}>{date}</div>
+						</div>
 					</div>
 				</div>
-				<div className={commentDiscussStyles.commentBox}>
-					<div className={commentDiscussStyles.contentBox}>
-						{showEditInput ? (
-							<input
-								className={commonStyle.input}
-								type="text"
-								defaultValue={content}
-								onChange={handleEditChange}
-							/>
-						) : (
-							<span className={commentDiscussStyles.commentContent}>
-								{content}
-							</span>
-						)}
+				<div className={commentDiscussStyles.commentWrapper}>
+					<div className={commentDiscussStyles.commentBox}>
+						<div className={commentDiscussStyles.contentBox}>
+							{showEditInput ? (
+								<input
+									className={commonStyle.input}
+									type="text"
+									defaultValue={content}
+									onChange={handleEditChange}
+								/>
+							) : (
+								<div className={commentDiscussStyles.commentBoxInner}>
+									<span className={commentDiscussStyles.commentContent}>
+										{content}
+									</span>
+									{!isSearch ? (
+										<div className={commentDiscussStyles.rightContent}>
+											<span
+												className={
+													everGood
+														? commentDiscussStyles.clicked
+														: commentDiscussStyles.lattice
+												}
+												onClick={clickedLattice}
+											>
+												+1
+											</span>
+											<span className={commentDiscussStyles.number}>
+												{goodCount}
+											</span>
+										</div>
+									) : null}
+								</div>
+							)}
+						</div>
+						{!isSearch ? (
+							<Fragment>
+								<div className={commentDiscussStyles.editDelete}>
+									<div onClick={() => setShowEditInput(!showEditInput)}>
+										{`${showEditInput ? "取消" : "編輯"}`}
+									</div>
+									{showEditInput ? (
+										<div onClick={handleSaveChange}>儲存</div>
+									) : (
+										<div onClick={deletedCommentItem}>刪除</div>
+									)}
+								</div>
+							</Fragment>
+						) : null}
 					</div>
-					{!isSearch ? (
-						<Fragment>
-							<div className={commentDiscussStyles.rightContent}>
-								<span
-									className={
-										everGood
-											? commentDiscussStyles.clicked
-											: commentDiscussStyles.lattice
-									}
-									onClick={clickedLattice}
-								>
-									+1
-								</span>
-								<span className={commentDiscussStyles.number}>{goodCount}</span>
-							</div>
-							<div className={commentDiscussStyles.editDelete}>
-								{showEditInput ? (
-									<div onClick={handleSaveChange}>儲存</div>
-								) : (
-									<div onClick={deletedCommentItem}>刪除</div>
-								)}
-							</div>
-						</Fragment>
-					) : null}
-				</div>
-				<ReplyList commentIndex={index} />
-				<div className={commentDiscussStyles.replyCommentBox}>
+
 					<div
 						className={commentDiscussStyles.feedbackText}
 						onClick={() => setShowNewReply(!showNewReply)}
 					>
 						回覆
 					</div>
+					{showNewReply ? (
+						<NewReply setShowNewReply={setShowNewReply} commentIndex={index} />
+					) : null}
+					<ReplyList commentIndex={index} />
 				</div>
-				{showNewReply ? (
-					<NewReply setShowNewReply={setShowNewReply} commentIndex={index} />
-				) : null}
 			</div>
 		</div>
 	);

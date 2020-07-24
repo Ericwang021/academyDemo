@@ -2,36 +2,59 @@
 @import "../../../styles/global/fontSize";
 @import "../../../styles/global/_variable.scss";
 
-.feedback {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    padding-right: 20px;
-    .feedbackEvent {
-        width: 100%;
-        display: flex;
-        align-items: baseline;
-        justify-content: flex-start;
-        margin-bottom: 15px;
-        .feedbackText {
-            color: $blue06;
-            font-size: map-get($desktopFont, $h6-size);
-            cursor: pointer;
-        }
-    }
-}
-.ReplyEditDelete {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    > div {
-        margin-right: 5px;
-        color: $blue06;
-        min-width: 25px;
-
-        &:last-child {
-            margin-right: 0;
-        }
-    }
+.replyItem {
+	width: 100%;
+	.replyPersonalInfo {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		.nameText {
+			margin-left: 10px;
+			.name {
+				font-size: map-get($desktopFont, $h5-size);
+				color: $gray08;
+			}
+		}
+	}
+	.commentBox {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		.contentBox {
+			display: flex;
+			justify-content: flex-end;
+			width: 100%;
+			margin-top: 10px;
+			.commentContent {
+				display: inline-block;
+				width: calc(100% - 42px);
+				font-size: map-get($desktopFont, $h5-size);
+			}
+		}
+		&:hover {
+			& .ReplyEditDelete {
+				visibility: visible;
+			}
+		}
+		.ReplyEditDelete {
+			visibility: hidden;
+			display: flex;
+			justify-content: flex-end;
+			width: calc(100% - 42px);
+			margin-top: 10px;
+			> div {
+				display: flex;
+				align-items: center;
+				> div {
+					font-size: map-get($desktopFont, $h5-size);
+					padding-right: 20px;
+					color: $blue06;
+					cursor: pointer;
+					&:last-child {
+						padding-right: 0;
+					}
+				}
+			}
+		}
+	}
 }

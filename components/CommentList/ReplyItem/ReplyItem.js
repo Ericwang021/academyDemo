@@ -2,9 +2,8 @@ import styles from "./ReplyItem.module.scss";
 import avatarStyle from "../../../styles/components/avatar.module.scss";
 import commonStyle from "../../../styles/components/common.module.scss";
 import commentDiscussStyles from "../../../styles/components/commentDiscuss.module.scss";
-import React, { useContext, useState } from "react";
-
 import context from "../../context";
+import React, { useContext, useState } from "react";
 
 const ReplyItem = ({ commentIndex, replyItem, replyIndex }) => {
 	const contextValue = useContext(context);
@@ -34,31 +33,29 @@ const ReplyItem = ({ commentIndex, replyItem, replyIndex }) => {
 		setDiscussionList([...temp]);
 	};
 	return (
-		<div className={commentDiscussStyles.comment}>
-			<div className={avatarStyle.avatarMl}>{name.substring(0, 1)}</div>
-			<div className={commentDiscussStyles.commentWrapper}>
-				<div className={commentDiscussStyles.commentBox}>
-					<div className={commentDiscussStyles.nameText}>
-						<div>{name}</div>
-						<div>{date}</div>
-					</div>
+		<div className={styles.replyItem}>
+			<div className={styles.replyPersonalInfo}>
+				<div className={avatarStyle.avatarMl}>{name.substring(0, 1)}</div>
+				<div className={styles.nameText}>
+					<div className={styles.name}>{name}</div>
+					<div>{date}</div>
 				</div>
-				<div className={commentDiscussStyles.commentBox}>
-					<div className="contentBox">
-						{showEditInput ? (
-							<input
-								className={commonStyle.input}
-								type="text"
-								onChange={handleEditChange}
-								defaultValue={content}
-							/>
-						) : (
-							<span className={commentDiscussStyles.commentContent}>
-								{content}
-							</span>
-						)}
-					</div>
-					<div className={styles.ReplyEditDelete}>
+			</div>
+			<div className={styles.commentBox}>
+				<div className={styles.contentBox}>
+					{showEditInput ? (
+						<input
+							className={commonStyle.input}
+							type="text"
+							onChange={handleEditChange}
+							defaultValue={content}
+						/>
+					) : (
+						<span className={styles.commentContent}>{content}</span>
+					)}
+				</div>
+				<div className={styles.ReplyEditDelete}>
+					<div className={styles.ReplyEditDeleteInner}>
 						<div onClick={() => setShowEditInput(!showEditInput)}>
 							{`${showEditInput ? "取消" : "編輯"}`}
 						</div>
@@ -68,7 +65,6 @@ const ReplyItem = ({ commentIndex, replyItem, replyIndex }) => {
 							<div onClick={deleteReply}>刪除</div>
 						)}
 					</div>
-					)
 				</div>
 			</div>
 		</div>
