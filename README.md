@@ -25,7 +25,6 @@
 
 - avatar - 大頭照共用元件，分別為 Sm (20x20) | Ml (30x30) | Lg (40x40) | Xl (60x60)。
 - button - 此專案共用 button 例：CTA button 。
-- commentDiscuss - 問題與討論共用 styles。
 - common - 頁面上重複使用到的 styles 。
 
 `3. global` -

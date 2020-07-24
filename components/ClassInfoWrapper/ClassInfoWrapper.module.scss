@@ -1,31 +1,36 @@
-@import '../../styles/global/color';
-@import '../../styles/global/fontSize';
-@import '../../styles/global/variable';
+@import "../../styles/global/color";
+@import "../../styles/global/fontSize";
+@import "../../styles/global/variable";
+@import "../../styles/browser/browser";
 
 .classTitleWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  .title {
-    font-size: map-get($desktopFont, $h1-size);
-    font-weight: $font-weight-bold;
-    color: $gray07;
-  }
-  > ul {
-    display: flex;
-    align-items: center;
-    > li {
-      margin-right: 15px;
-      padding-right: 15px;
-      border-right: 1px solid $gray07;
-      color: $gray07;
-      font-size: map-get($desktopFont, $h5-size);
-      &:last-child {
-        margin-right: 0;
-        padding-right: 0;
-        border-right: none;
-      }
-    }
-  }
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	@include breakpoint(pad) {
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+	.title {
+		font-size: map-get($desktopFont, $h1-size);
+		font-weight: $font-weight-bold;
+		color: $gray07;
+	}
+	> ul {
+		display: flex;
+		align-items: center;
+		> li {
+			margin-right: 15px;
+			padding-right: 15px;
+			border-right: 1px solid $gray07;
+			color: $gray07;
+			font-size: map-get($desktopFont, $h5-size);
+			&:last-child {
+				margin-right: 0;
+				padding-right: 0;
+				border-right: none;
+			}
+		}
+	}
 }

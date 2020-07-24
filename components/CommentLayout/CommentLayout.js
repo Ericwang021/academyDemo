@@ -99,7 +99,11 @@ const CommentLayout = () => {
 							)}
 						</div>
 					</div>
-					<div className={styles.commentContainer}>
+					<div
+						className={
+							!showComment ? styles.commentContainer : styles.extendReply
+						}
+					>
 						<CommentList />
 					</div>
 				</div>

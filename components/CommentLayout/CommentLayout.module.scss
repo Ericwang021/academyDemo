@@ -94,5 +94,9 @@
 			z-index: -1;
 			margin-top: 15px;
 		}
+		.extendReply {
+			@extend .commentContainer;
+			max-height: 330px;
+		}
 	}
 }

@@ -1,10 +1,11 @@
-import React, { Fragment, useContext, useState } from "react";
-import context from "../../context";
 import avatarStyle from "../../../styles/components/avatar.module.scss";
 import commonStyle from "../../../styles/components/common.module.scss";
-import commentDiscussStyles from "../../../styles/components/commentDiscuss.module.scss";
-import ReplyList from "../ReplyList/ReplyList";
+import styles from "./CommentItem.module.scss";
+import React, { Fragment, useContext, useState } from "react";
+import context from "../../context";
 import NewReply from "../NewReply/NewReply";
+import ReplyList from "../ReplyList/ReplyList";
+
 const CommentItem = ({ renderItem, index }) => {
 	const contextValue = useContext(context);
 	const { isSearch, discussionList, setDiscussionList } = contextValue;
@@ -47,22 +48,22 @@ const CommentItem = ({ renderItem, index }) => {
 		setShowEditInput(!showEditInput);
 	};
 	return (
-		<div className={commentDiscussStyles.comment}>
-			<div className={commentDiscussStyles.titleMarket}>Explore</div>
-			<div className={commentDiscussStyles.commentInner}>
-				<div className={commentDiscussStyles.personalInfo}>
-					<div className={commentDiscussStyles.MarketNumber}>{index + 1}</div>
+		<div className={styles.comment}>
+			<div className={styles.titleMarket}>Explore</div>
+			<div className={styles.commentInner}>
+				<div className={styles.personalInfo}>
+					<div className={styles.MarketNumber}>{index + 1}</div>
 					<div className={avatarStyle.avatarMl}>{name.substring(0, 1)}</div>
-					<div className={commentDiscussStyles.commentBox}>
-						<div className={commentDiscussStyles.nameText}>
-							<div className={commentDiscussStyles.name}>{name}</div>
-							<div className={commentDiscussStyles.date}>{date}</div>
+					<div className={styles.commentBox}>
+						<div className={styles.nameText}>
+							<div className={styles.name}>{name}</div>
+							<div className={styles.date}>{date}</div>
 						</div>
 					</div>
 				</div>
-				<div className={commentDiscussStyles.commentWrapper}>
-					<div className={commentDiscussStyles.commentBox}>
-						<div className={commentDiscussStyles.contentBox}>
+				<div className={styles.commentWrapper}>
+					<div className={styles.commentBox}>
+						<div className={styles.contentBox}>
 							{showEditInput ? (
 								<input
 									className={commonStyle.input}
@@ -71,25 +72,17 @@ const CommentItem = ({ renderItem, index }) => {
 									onChange={handleEditChange}
 								/>
 							) : (
-								<div className={commentDiscussStyles.commentBoxInner}>
-									<span className={commentDiscussStyles.commentContent}>
-										{content}
-									</span>
+								<div className={styles.commentBoxInner}>
+									<span className={styles.commentContent}>{content}</span>
 									{!isSearch ? (
-										<div className={commentDiscussStyles.rightContent}>
+										<div className={styles.rightContent}>
 											<span
-												className={
-													everGood
-														? commentDiscussStyles.clicked
-														: commentDiscussStyles.lattice
-												}
+												className={everGood ? styles.clicked : styles.lattice}
 												onClick={clickedLattice}
 											>
 												+1
 											</span>
-											<span className={commentDiscussStyles.number}>
-												{goodCount}
-											</span>
+											<span className={styles.number}>{goodCount}</span>
 										</div>
 									) : null}
 								</div>
@@ -97,7 +90,7 @@ const CommentItem = ({ renderItem, index }) => {
 						</div>
 						{!isSearch ? (
 							<Fragment>
-								<div className={commentDiscussStyles.editDelete}>
+								<div className={styles.editDelete}>
 									<div onClick={() => setShowEditInput(!showEditInput)}>
 										{`${showEditInput ? "取消" : "編輯"}`}
 									</div>
@@ -112,7 +105,7 @@ const CommentItem = ({ renderItem, index }) => {
 					</div>
 
 					<div
-						className={commentDiscussStyles.feedbackText}
+						className={styles.feedbackText}
 						onClick={() => setShowNewReply(!showNewReply)}
 					>
 						回覆

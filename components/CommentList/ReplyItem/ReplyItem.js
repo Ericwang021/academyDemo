@@ -1,9 +1,8 @@
-import styles from "./ReplyItem.module.scss";
 import avatarStyle from "../../../styles/components/avatar.module.scss";
 import commonStyle from "../../../styles/components/common.module.scss";
-import commentDiscussStyles from "../../../styles/components/commentDiscuss.module.scss";
-import context from "../../context";
+import styles from "./ReplyItem.module.scss";
 import React, { useContext, useState } from "react";
+import context from "../../context";
 
 const ReplyItem = ({ commentIndex, replyItem, replyIndex }) => {
 	const contextValue = useContext(context);

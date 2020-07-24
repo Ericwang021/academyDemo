@@ -1,8 +1,10 @@
 @import "../styles/global/color";
 
 .container {
+	min-width: 768px;
 	background-color: $gray03;
 	padding: 15px 0;
+	overflow-x: auto;
 	.containerBackground {
 		background-color: transparent;
 	}

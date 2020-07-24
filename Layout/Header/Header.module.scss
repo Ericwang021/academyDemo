@@ -1,59 +1,60 @@
-@import '../../styles/global/_fontSize.scss';
-@import '../../styles/global/color';
+@import "../../styles/global/_fontSize.scss";
+@import "../../styles/global/color";
 
 .header {
-  width: 100vw;
-  background-color: $gray03;
-  border-bottom: 3px solid $gray05;
-  z-index: 999;
-  .headerInner {
-    width: 100%;
-    display: grid;
-    align-items: center;
-    grid-template-columns: fit-content(10%) auto fit-content(10%);
-    column-gap: 30px;
-    padding: 10px 24px;
-    > a {
-      display: flex;
-      align-items: center;
-      svg {
-        width: 48px;
-        height: 48px;
-      }
-      .logoText {
-        font-size: map-get($desktopFont, $h3-size);
-        font-weight: $font-weight-bold;
-        margin-left: 10px;
-        color: $gray08;
-      }
-    }
-    nav {
-      > ul {
-        display: flex;
-        align-items: center;
-        > li {
-          margin-right: 35px;
-          &:last-child {
-            margin-right: 0;
-          }
-          > a {
-            font-size: map-get($desktopFont, $h3-size);
-            font-weight: $font-weight-bold;
-            color: $gray07;
-            &:hover {
-              color: $blue05;
-            }
-          }
-        }
-      }
-    }
-    .personBox {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      > div {
-        margin-left: 10px;
-      }
-    }
-  }
+	width: 100vw;
+	min-width: 768px;
+	background-color: $gray03;
+	border-bottom: 3px solid $gray05;
+	z-index: 999;
+	.headerInner {
+		width: 100%;
+		display: grid;
+		align-items: center;
+		grid-template-columns: fit-content(10%) auto fit-content(10%);
+		column-gap: 30px;
+		padding: 10px 24px;
+		> a {
+			display: flex;
+			align-items: center;
+			svg {
+				width: 48px;
+				height: 48px;
+			}
+			.logoText {
+				font-size: map-get($desktopFont, $h3-size);
+				font-weight: $font-weight-bold;
+				margin-left: 10px;
+				color: $gray08;
+			}
+		}
+		nav {
+			> ul {
+				display: flex;
+				align-items: center;
+				> li {
+					margin-right: 35px;
+					&:last-child {
+						margin-right: 0;
+					}
+					> a {
+						font-size: map-get($desktopFont, $h3-size);
+						font-weight: $font-weight-bold;
+						color: $gray07;
+						&:hover {
+							color: $blue05;
+						}
+					}
+				}
+			}
+		}
+		.personBox {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			> div {
+				margin-left: 10px;
+			}
+		}
+	}
 }
