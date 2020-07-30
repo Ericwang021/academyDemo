@@ -8,6 +8,7 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	padding: 0 16px;
 	@include breakpoint(pad) {
 		flex-direction: column;
 		align-items: flex-start;
@@ -15,7 +16,7 @@
 	.title {
 		font-size: map-get($desktopFont, $h1-size);
 		font-weight: $font-weight-bold;
-		color: $gray07;
+		color: $gray10;
 	}
 	> ul {
 		display: flex;

@@ -5,13 +5,13 @@
 	width: 100vw;
 	min-width: 768px;
 	background-color: $gray03;
-	border-bottom: 3px solid $gray05;
+	border-bottom: 4px solid $gray09;
 	z-index: 999;
 	.headerInner {
 		width: 100%;
 		display: grid;
 		align-items: center;
-		grid-template-columns: fit-content(10%) auto fit-content(10%);
+		grid-template-columns: 226px auto fit-content(10%);
 		column-gap: 30px;
 		padding: 10px 24px;
 		> a {
@@ -22,18 +22,19 @@
 				height: 48px;
 			}
 			.logoText {
-				font-size: map-get($desktopFont, $h3-size);
+				font-size: map-get($desktopFont, $h2-size);
 				font-weight: $font-weight-bold;
 				margin-left: 10px;
-				color: $gray08;
+				color: $gray09;
 			}
 		}
 		nav {
 			> ul {
-				display: flex;
-				align-items: center;
+				display: grid;
+				grid-template-columns: 144px 144px auto;
+				column-gap: 35px;
 				> li {
-					margin-right: 35px;
+					margin-right: 10px;
 					&:last-child {
 						margin-right: 0;
 					}

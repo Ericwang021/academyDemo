@@ -1,9 +1,9 @@
-@import '../global/_fontSize.scss';
-@import '../global/variable';
-@import '../global/_color.scss';
+@import "../global/_fontSize.scss";
+@import "../global/variable";
+@import "../global/_color.scss";
 
 //大頭照共用元件，分別為 sm(20*20) \ ml(30*30) \ lg(40*40) \ xl(60*60)
-@mixin avatar($width, $height, $fontSize: map-get($desktopFont, $h5-size)) {
+@mixin avatar($width, $height, $fontSize: map-get($desktopFont, $h5-size), $backgroundColor: #719a9a) {
   width: $width;
   height: $height;
   display: flex;
@@ -11,10 +11,11 @@
   justify-content: center;
   font-size: $fontSize;
   font-weight: $font-weight-bold;
+  font-weight: 500;
   padding: 10px;
   border-radius: 50%;
   color: #fff;
-  background-color: #719a9a;
+  background-color: $backgroundColor;
 }
 
 .avatarSm {
@@ -25,6 +26,9 @@
 }
 .avatarLg {
   @include avatar(40px, 40px);
+}
+.avatarUnit {
+  @include avatar(48px, 48px, map-get($desktopFont, $h3-size), #bdbdbd);
 }
 .avatarXl {
   @include avatar(60px, 60px, map-get($desktopFont, $h2-size));

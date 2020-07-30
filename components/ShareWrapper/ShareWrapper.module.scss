@@ -1,0 +1,49 @@
+@import "../../styles/global/color";
+@import "../../styles/global/fontSize";
+
+.shareWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 16px;
+	margin-top: 15px;
+}
+.ownerBox {
+	width: 100%;
+	display: flex;
+	align-items: center;
+
+	.ownerDetail {
+		margin-left: 10px;
+		li {
+			color: $gray07;
+			&.ownerName {
+				font-size: map-get($desktopFont, $h4-size);
+				color: $gray10;
+			}
+		}
+	}
+}
+.sharedController {
+	display: flex;
+	align-items: center;
+	> li {
+		margin-right: 15px;
+		padding-right: 15px;
+		border-right: 1px solid $gray11;
+		color: $gray11;
+		> span {
+			color: $gray11;
+			margin-right: 10px;
+			font-size: map-get($desktopFont, $h5-size);
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		&:last-child {
+			margin-right: 0;
+			padding-right: 0;
+			border-right: none;
+		}
+	}
+}

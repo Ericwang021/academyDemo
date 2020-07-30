@@ -51,6 +51,7 @@ const CommentItem = ({ renderItem, index }) => {
 		<div className={styles.comment}>
 			<div className={styles.titleMarket}>Explore</div>
 			<div className={styles.commentInner}>
+				<span></span>
 				<div className={styles.personalInfo}>
 					<div className={styles.MarketNumber}>{index + 1}</div>
 					<div className={avatarStyle.avatarMl}>{name.substring(0, 1)}</div>
