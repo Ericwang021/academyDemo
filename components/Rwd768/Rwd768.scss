@@ -1,0 +1,53 @@
+@import "../../styles/global/color";
+@import "../../styles/global/fontSize";
+@import "../../styles/browser/browser";
+.rwd-container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-items: center;
+	padding: 15px;
+	.container-inner {
+		margin: auto;
+		.title {
+			font-size: map-get($desktopFont, $h2-size);
+			color: $blue05;
+			@include breakpoint(mobile) {
+				text-align: center;
+				margin-bottom: 10px;
+			}
+		}
+		.sub-title {
+			font-size: map-get($desktopFont, $h5-size);
+			color: $gray07;
+			@include breakpoint(mobile) {
+				text-align: center;
+			}
+		}
+		ul {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			margin-top: 10px;
+			@include breakpoint(mobile) {
+				flex-direction: column;
+			}
+			li {
+				width: 150px;
+				margin-right: 10px;
+				@include breakpoint(mobile) {
+					margin: 0 0 20px 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+				svg {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+}

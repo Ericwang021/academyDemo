@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^5.4.0",
+    "file-loader": "^6.0.0",
     "webpack-stats-plugin": "^0.3.2"
   },
   "bugs": {

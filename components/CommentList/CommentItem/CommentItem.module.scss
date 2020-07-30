@@ -13,11 +13,6 @@
 		border-left: 3px solid $green02;
 		height: 100%;
 	}
-	&:last-child {
-		&:before {
-			border: none;
-		}
-	}
 	.titleMarket {
 		width: 100%;
 		height: 30px;
@@ -40,15 +35,33 @@
 		font-size: map-get($desktopFont, $h3-size);
 		border-radius: 50%;
 		background-color: #fff;
-		color: $green02;
+		color: $green03;
 		border: 2px solid rgb(143, 195, 81);
 	}
 }
 div {
+	.time {
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 10px;
+		&:before {
+			content: "";
+			position: absolute;
+			left: -27px;
+			display: block;
+			width: 14px;
+			height: 14px;
+			border-radius: 50px;
+			border: 2px solid rgb(143, 195, 81);
+			background-color: #fff;
+		}
+	}
 	&.personalInfo {
 		position: relative;
 		display: flex;
 		align-items: flex-start;
+		flex-direction: column;
 		padding-left: 40px;
 		margin-top: 15px;
 		.avatar {

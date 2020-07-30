@@ -1,11 +1,25 @@
 @import "../styles/global/color";
+@import "../styles/browser/browser";
 
-.container {
-	min-width: 768px;
-	background-color: $gray03;
-	padding: 15px 0;
-	overflow-x: auto;
-	.containerBackground {
-		background-color: transparent;
+.layout {
+	.pcWidth {
+		@include breakpoint(pc) {
+			display: none;
+		}
+		.container {
+			min-width: 960px;
+			background-color: $gray03;
+			padding: 15px 0;
+			overflow-x: auto;
+			.containerBackground {
+				background-color: transparent;
+			}
+		}
+	}
+	.padWidth {
+		display: none;
+		@include breakpoint(pc) {
+			display: block;
+		}
 	}
 }

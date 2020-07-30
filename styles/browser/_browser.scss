@@ -1,22 +1,22 @@
 $width-s: 320px;
 $width-sm: 414px;
 $width-md: 768px;
-$width-lg: 1024px;
+$width-lg: 960px;
 $width-xl: 1280px;
 
-// 響應式(RWD) 斷點: mobile:414px \ pad:768px \ pc:1280px
+// 響應式(RWD) 斷點: mobile:414px \ pad:768px \ pc:960px
 @mixin breakpoint($point) {
-    @if $point == pc {
-        @media only screen and (max-width: $width-xl) {
-            @content;
-        }
-    } @else if $point == pad {
-        @media only screen and (max-width: $width-md) {
-            @content;
-        }
-    } @else if $point == mobile {
-        @media only screen and (max-width: $width-sm) {
-            @content;
-        }
-    }
+	@if $point == pc {
+		@media only screen and (max-width: $width-lg) {
+			@content;
+		}
+	} @else if $point == pad {
+		@media only screen and (max-width: $width-md) {
+			@content;
+		}
+	} @else if $point == mobile {
+		@media only screen and (max-width: $width-sm) {
+			@content;
+		}
+	}
 }

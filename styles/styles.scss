@@ -1,4 +1,7 @@
 // 全站 style reset
-@import './global/_reset.scss';
+@import "./global/_reset.scss";
 //page
-@import './pagestyle/index.scss';
+@import "./pagestyle/index.scss";
+
+// components
+@import "../components/Rwd768/Rwd768.scss";
