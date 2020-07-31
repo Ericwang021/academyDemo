@@ -1,79 +1,80 @@
-@import '../../styles/global/color';
-@import '../../styles/global/fontSize';
+@import "../../styles/global/color";
+@import "../../styles/global/fontSize";
 
 .videoWrapper {
-  .playController {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: $gray08;
-    margin: 0;
-    .playAndVolume {
-      display: flex;
-      align-items: center;
+	.playController {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: $gray08;
+		margin: 0;
+		.playAndVolume {
+			display: flex;
+			align-items: center;
 
-      .volume {
-        display: flex;
-        align-items: center;
-        color: #fff;
-      }
-      .volumeMiddle {
-        @extend .volume;
-        width: 100px;
-        > span {
-          margin-top: 0;
-        }
-      }
-    }
-  }
-  .videoMark {
-    position: relative;
-    width: 100%;
-    ul {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: grid;
-      grid-template-columns: 15% 20% 30% auto;
-      align-items: center;
-      cursor: pointer;
-      transform: scaleY(0.3);
-      transition: 0.2s ease-in-out;
-      &:hover {
-        transform-origin: center;
-        transform: scaleY(1);
-        li > span {
-          visibility: visible;
-        }
-      }
-      li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 40px;
-        padding: 5px 10px;
-        color: $gray08;
-        font-size: map-get($desktopFont, $h4-size);
-        &.signUp {
-          background-color: $blue05;
-        }
-        &.explore {
-          background-color: $green03;
-        }
-        &.preview {
-          background-color: $yellow;
-        }
-        &.video {
-          background-color: $purple;
-        }
-        > span {
-          visibility: hidden;
-          transition: 0.2s ease-out;
-        }
-      }
-    }
-  }
+			.volume {
+				display: flex;
+				align-items: center;
+				color: #fff;
+			}
+			.volumeMiddle {
+				@extend .volume;
+				width: 100px;
+				> span {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	.videoMark {
+		position: relative;
+		width: 100%;
+		ul {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: grid;
+			grid-template-columns: 15% 20% 30% auto;
+			align-items: center;
+			cursor: pointer;
+			transform: scaleY(0.3);
+			transition: 0.2s ease-in-out;
+			&:hover {
+				transform-origin: center;
+				transform: scaleY(1);
+				li > span {
+					visibility: visible;
+					color: #fff;
+				}
+			}
+			li {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 40px;
+				padding: 5px 10px;
+				color: #fff;
+				font-size: map-get($desktopFont, $h4-size);
+				&.signUp {
+					background-color: $blue05;
+				}
+				&.explore {
+					background-color: $green03;
+				}
+				&.preview {
+					background-color: $yellow;
+				}
+				&.video {
+					background-color: $purple;
+				}
+				> span {
+					visibility: hidden;
+					transition: 0.2s ease-out;
+				}
+			}
+		}
+	}
 }

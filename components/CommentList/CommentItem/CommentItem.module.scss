@@ -121,7 +121,7 @@ div {
 						.clicked {
 							@extend .lattice;
 							color: #fff;
-							background-color: $blue06;
+							background-color: $blue05;
 						}
 						.number {
 							font-size: map-get($desktopFont, $h5-size);
@@ -142,7 +142,7 @@ div {
 				margin-top: 15px;
 				width: calc(100% - 42px);
 				> div {
-					color: $blue06;
+					color: $blue05;
 					font-size: map-get($desktopFont, $h5-size);
 					cursor: pointer;
 					&:first-child {
@@ -155,7 +155,7 @@ div {
 			width: calc(100% - 42px);
 			font-size: map-get($desktopFont, $h5-size);
 			text-align: right;
-			color: $blue06;
+			color: $blue05;
 			cursor: pointer;
 		}
 	}

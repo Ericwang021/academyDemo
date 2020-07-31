@@ -4,13 +4,46 @@
 
 .commentLayout {
 	position: relative;
-	width: 100%;
+	width: 90%;
 	height: 100%;
 	background-color: $gray03;
 	box-shadow: $box-shadow;
 	.commentLayoutInner {
 		height: 100%;
 		padding: 10px 0;
+		.tabHead {
+			position: absolute;
+			right: -54px;
+			top: 10px;
+			li {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				color: $gray00;
+				background-color: #fafafa;
+				border-radius: 0 5px 5px 0;
+				margin-bottom: 5px;
+				width: 55px;
+				padding: 5px;
+				box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.15);
+				cursor: pointer;
+				.iconButton {
+					color: $gray00;
+					padding: 4px;
+				}
+				.iconText {
+					font-size: map-get($desktopFont, $h6-size);
+					margin-top: 5px;
+				}
+				&.active {
+					color: $blue05;
+					.iconButton {
+						color: $blue05;
+					}
+				}
+			}
+		}
 		.WrapperTopBox {
 			position: sticky;
 			top: 0;

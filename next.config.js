@@ -7,25 +7,16 @@ module.exports = {
 	},
 	DestDir: build,
 	webpack(config) {
-		config.module.rules.push({
-			test: /\.svg$/,
-			issuer: {
-				test: /\.(js|ts)x?$/,
-			},
-			use: ["@svgr/webpack"],
-		});
-		return config;
-	},
-	module: {
-		rules: [
+		config.module.rules.push(
 			{
-				test: /\.(png|jpe?g|gif)$/i,
-				use: [
-					{
-						loader: "file-loader",
-					},
-				],
+				test: /\.svg$/,
+				issuer: {
+					test: /\.(js|ts)x?$/,
+				},
+				use: ["@svgr/webpack"],
 			},
-		],
+			{ test: /\.(png|jpeg)$/, loader: "url-loader?limit=8192" }
+		);
+		return config;
 	},
 };
