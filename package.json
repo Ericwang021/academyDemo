@@ -22,7 +22,7 @@
     "koa": "^2.13.0",
     "koa-router": "^9.1.0",
     "material-design-icons": "^3.0.1",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "next": "^9.4.4",
     "node-sass": "^4.14.1",
     "ramda": "^0.27.0",
